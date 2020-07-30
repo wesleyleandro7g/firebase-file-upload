@@ -24,6 +24,7 @@ export const HeaderWrapper = styled.header`
 export const Main = styled.main`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 3%;
   width: 60%;
   height: 80%;
 `;
@@ -34,14 +35,10 @@ export const InputWrapper = styled.div`
   align-items: center;
   width: 200px;
   height: 200px;
-  border-radius: 3px;
-  background-color: #404040;
-  transition-duration: 200ms;
+  background-color: transparent;
   cursor: pointer;
-
-  :hover {
-    opacity: 0.8;
-  }
+  border-radius: 5px;
+  border: 1px groove #000;
 `;
 
 export const Input = styled.input`
