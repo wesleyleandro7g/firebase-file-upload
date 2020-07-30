@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MdAddCircle } from "react-icons/md";
+import { FaHeart } from "react-icons/fa";
 
 import { storage } from "../services/firebase";
 
@@ -11,6 +12,8 @@ import * as S from "./styled";
 import GlobalStyles from "../styles/Global";
 
 import img1 from "../assets/desencoder.jpeg";
+import FirebaseLogo from "../assets/firebaseImage.png";
+import ReactLogo from "../assets/reactLogo.png";
 
 const App = () => {
   const [isModal, setIsModal] = useState(false);
@@ -37,7 +40,11 @@ const App = () => {
       <GlobalStyles />
       <S.Container>
         <S.HeaderWrapper>
-          <h1>React Image Upload - Firebase</h1>
+          <S.ImageLogo src={ReactLogo} />
+          <h1>+</h1>
+          <S.ImageLogo src={FirebaseLogo} />
+          <h1>=</h1>
+          <FaHeart size={"25%"} />
         </S.HeaderWrapper>
         <S.Main>
           <label htmlFor="selectFile">
