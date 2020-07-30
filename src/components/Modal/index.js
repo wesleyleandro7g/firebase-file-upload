@@ -2,7 +2,7 @@ import React from "react";
 
 import * as S from "./styled";
 
-const ModalComponent = ({ isModal, img, closeModal }) => {
+const ModalComponent = ({ isModal, input, closeModal }) => {
   return (
     <S.Container
       isOpen={isModal}
@@ -26,13 +26,15 @@ const ModalComponent = ({ isModal, img, closeModal }) => {
       }}
     >
       <S.ImageWrapper>
-        <S.Image src={img} />
+        <S.Image src={input} />
       </S.ImageWrapper>
 
       <S.DescribeWrapper>
-        <S.Input placeholder="Dê um nome para a sua imagem..." />
-        <S.Buttom> FINALIZAR </S.Buttom>
-        <S.ButtonCancel onClick={closeModal}> CANCELAR </S.ButtonCancel>
+        <S.Input placeholder="Dê um nome para essa imagem..." />
+        <S.IconWrapper>
+          <S.Check />
+          <S.Close onClick={closeModal} />
+        </S.IconWrapper>
       </S.DescribeWrapper>
     </S.Container>
   );

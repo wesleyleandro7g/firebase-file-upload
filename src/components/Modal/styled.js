@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Modal from "react-modal";
+import { FiCheck, FiX } from "react-icons/fi";
 
 export const Container = styled(Modal)`
   display: flex;
@@ -51,27 +52,22 @@ export const Input = styled.input`
   }
 `;
 
-export const Buttom = styled.button`
-  height: 40px;
-  font-weight: bold;
-  font-size: 16px;
+export const IconWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+`;
+
+export const Check = styled(FiCheck)`
+  font-size: 25px;
+  color: #1aff1a;
+  padding: 15px;
   cursor: pointer;
 `;
 
-export const ButtonCancel = styled.button`
-  height: 20px;
-  font-size: 12px;
-  background-color: transparent;
-  color: #ff3333;
-  border: 0;
+export const Close = styled(FiX)`
+  font-size: 25px;
+  color: #ff5c33;
+  padding: 15px;
   cursor: pointer;
-  transition-duration: 100ms;
-
-  :focus {
-    outline: 0;
-  }
-
-  :hover {
-    opacity: 0.8;
-  }
 `;

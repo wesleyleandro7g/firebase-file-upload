@@ -16,10 +16,19 @@ import img4 from "../assets/Server.jpg";
 const App = () => {
   const [isModal, setIsModal] = useState(false);
   const [file, setFile] = useState({});
+  const [preview, setPreview] = useState("");
 
   const HandleImagePreview = (e) => {
     if (e.target.files[0]) {
       setFile(e.target.files[0]);
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        setPreview(e.target.result);
+      };
+
+      reader.readAsDataURL(e.target.files[0]);
+
       setIsModal(!isModal);
     }
   };
@@ -34,7 +43,7 @@ const App = () => {
         <S.Main>
           <label htmlFor="selectFile">
             <S.InputWrapper>
-              <MdAddCircle size={50} color="#333" />
+              <MdAddCircle size={50} color="#262626" />
               <S.Input
                 id="selectFile"
                 type="file"
@@ -73,7 +82,7 @@ const App = () => {
         </S.Main>
 
         <Modal
-          img={file}
+          input={preview}
           isModal={isModal}
           closeModal={() => setIsModal(!isModal)}
         />

@@ -9,7 +9,7 @@ export const Container = styled.div`
   align-items: center;
   margin: 0;
   padding: 0;
-  background-color: #1a1a1a;
+  background-color: #0d0d0d;
 `;
 
 export const HeaderWrapper = styled.header`
@@ -38,7 +38,7 @@ export const InputWrapper = styled.div`
   background-color: transparent;
   cursor: pointer;
   border-radius: 5px;
-  border: 1px groove #000;
+  border: 1px dashed #262626;
 `;
 
 export const Input = styled.input`
