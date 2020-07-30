@@ -39,6 +39,11 @@ export const InputWrapper = styled.div`
   cursor: pointer;
   border-radius: 5px;
   border: 1px dashed #262626;
+  transition-duration: 200ms;
+
+  :hover {
+    border-color: #196619;
+  }
 `;
 
 export const Input = styled.input`

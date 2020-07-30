@@ -15,7 +15,7 @@ import img4 from "../assets/Server.jpg";
 
 const App = () => {
   const [isModal, setIsModal] = useState(false);
-  const [file, setFile] = useState({});
+  const [file, setFile] = useState("");
   const [preview, setPreview] = useState("");
 
   const HandleImagePreview = (e) => {
@@ -84,6 +84,7 @@ const App = () => {
         <Modal
           input={preview}
           isModal={isModal}
+          file={file}
           closeModal={() => setIsModal(!isModal)}
         />
       </S.Container>
