@@ -16,7 +16,7 @@ export const HeaderWrapper = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 60%;
   height: 20%;
   color: #fff;
 `;
@@ -24,7 +24,28 @@ export const HeaderWrapper = styled.header`
 export const Main = styled.main`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  width: 80%;
+  width: 60%;
   height: 80%;
-  background-color: #797979;
+`;
+
+export const InputWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 3px;
+  background-color: #404040;
+  transition-duration: 200ms;
+  cursor: pointer;
+
+  :hover {
+    opacity: 0.8;
+  }
+`;
+
+export const Input = styled.input`
+  width: 100%;
+  height: 100%;
+  display: none;
 `;
