@@ -32,11 +32,6 @@ const App = () => {
     }
   };
 
-  useEffect(() => {
-    const listImages = storage.child("images");
-    console.log(listImages);
-  }, []);
-
   return (
     <>
       <GlobalStyles />
