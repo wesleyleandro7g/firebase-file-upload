@@ -35,6 +35,11 @@ const App = () => {
     }
   };
 
+  const handleDeleteImage = () => {
+    alert("Funcionalidade em DESENvolvimento !!!");
+    // firestore.collection("images").doc("doc").delete();
+  };
+
   useEffect(() => {
     firestore
       .collection("images")
@@ -68,14 +73,15 @@ const App = () => {
             </S.InputWrapper>
           </label>
 
-          {data.map((item) => (
-            <ImageCard
-              name={item.name}
-              image={item.url}
-              onClick={() => alert("Visualizar imagem completa")}
-              onDelete={() => alert("Deletar a imagem")}
-            />
-          ))}
+          {data &&
+            data.map((item) => (
+              <ImageCard
+                name={item.name}
+                image={item.url}
+                onClick={() => alert("Visualizar imagem completa")}
+                onDelete={() => handleDeleteImage()}
+              />
+            ))}
         </S.Main>
 
         <Modal

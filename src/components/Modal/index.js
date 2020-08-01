@@ -35,7 +35,7 @@ const ModalComponent = ({ isModal, input, closeModal, file }) => {
               .set({
                 images: [
                   {
-                    name: file.name,
+                    name: imageName ? imageName : file.name,
                     url: url,
                   },
                 ],

@@ -4,7 +4,7 @@ import * as S from "./styled";
 
 const ImageCard = ({ image, name, onClick, onDelete }) => {
   return (
-    <S.Container onClick={onClick}>
+    <S.Container>
       <S.Image src={image} />
       <S.ImageWrapper>
         <S.ImageName> {name} </S.ImageName>
