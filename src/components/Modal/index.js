@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { storage } from "../../services/firebase";
+import { storage, firestore } from "../../services/firebase";
 
 import * as S from "./styled";
 
@@ -29,7 +29,17 @@ const ModalComponent = ({ isModal, input, closeModal, file }) => {
           .child(file.name)
           .getDownloadURL()
           .then((url) => {
-            console.log(url);
+            firestore
+              .collection("images")
+              .doc("doc")
+              .set({
+                images: [
+                  {
+                    name: file.name,
+                    url: url,
+                  },
+                ],
+              });
           });
       }
     );

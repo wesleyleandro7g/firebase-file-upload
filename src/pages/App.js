@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { MdAddCircle } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
 
-import { storage } from "../services/firebase";
+import { firestore } from "../services/firebase";
 
 import ImageCard from "../components/ImageCard";
 import Modal from "../components/Modal";
@@ -11,7 +11,6 @@ import * as S from "./styled";
 
 import GlobalStyles from "../styles/Global";
 
-import img1 from "../assets/desencoder.jpeg";
 import FirebaseLogo from "../assets/firebaseImage.png";
 import ReactLogo from "../assets/reactLogo.png";
 
@@ -19,6 +18,7 @@ const App = () => {
   const [isModal, setIsModal] = useState(false);
   const [file, setFile] = useState("");
   const [preview, setPreview] = useState("");
+  const [data, setData] = useState([]);
 
   const HandleImagePreview = (e) => {
     if (e.target.files[0]) {
@@ -34,6 +34,16 @@ const App = () => {
       setIsModal(!isModal);
     }
   };
+
+  useEffect(() => {
+    firestore
+      .collection("images")
+      .doc("doc")
+      .get()
+      .then(function (doc) {
+        setData(doc.data().images);
+      });
+  }, []);
 
   return (
     <>
@@ -58,12 +68,14 @@ const App = () => {
             </S.InputWrapper>
           </label>
 
-          <ImageCard
-            name="DesenCoder"
-            image={img1}
-            onClick={() => alert("Visualizar imagem completa")}
-            onDelete={() => alert("Deletar a imagem")}
-          />
+          {data.map((item) => (
+            <ImageCard
+              name={item.name}
+              image={item.url}
+              onClick={() => alert("Visualizar imagem completa")}
+              onDelete={() => alert("Deletar a imagem")}
+            />
+          ))}
         </S.Main>
 
         <Modal
